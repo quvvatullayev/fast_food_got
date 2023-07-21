@@ -17,6 +17,14 @@ class DB:
             data = {"error":"request not fount"}
         return data
     
+    def get_category_detail(self, pk:int):
+        request = requests.get(self.base_url+f"category/detail/{pk}/")
+        if request.status_code == 200:
+            data = request.json()
+        else:
+            data = {'error':'request not fount'}
+        return data
+    
 
 db = DB('db.json')
-print(db.get_category_list())
+print(db.get_category_detail(1))
