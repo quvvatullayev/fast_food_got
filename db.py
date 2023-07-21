@@ -49,6 +49,14 @@ class DB:
             data = {'error':'request not fount'}
         return data
     
+    def get_product_detail(self, pk:int):
+        request = requests.get(self.base_url+f"product/detail/{pk}/")
+        if request.status_code == 200:
+            data = request.json()
+        else:
+            data = {'error':'request not fount'}
+        return data
+    
 
 db = DB('db.json')
-print(db.get_product_list())
+print(db.get_product_detail(1))
