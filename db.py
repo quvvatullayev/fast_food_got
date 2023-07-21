@@ -40,7 +40,15 @@ class DB:
         else:
             data = {'error':'request not fount'}
         return data
+
+    def get_product_list(self):
+        request = requests.get(self.base_url+"product/list/")
+        if request.status_code == 200:
+            data = request.json()
+        else:
+            data = {'error':'request not fount'}
+        return data
     
 
 db = DB('db.json')
-print(db.get_subcategory_list())
+print(db.get_product_list())
