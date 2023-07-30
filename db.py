@@ -26,8 +26,8 @@ class DB:
             data = {'error':'request not fount'}
         return data
     
-    def get_subcategory_list(self):
-        request = requests.get(self.base_url+"subcategory/list/")
+    def get_subcategory_list(self, pk:int):
+        request = requests.get(self.base_url+f"subcategory/list/{pk}/")
         if request.status_code == 200:
             data = request.json()
         else:

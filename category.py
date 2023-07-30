@@ -1,5 +1,5 @@
 from telegram.ext import CallbackContext, Updater
-from telegram import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from db import DB
 
 db = DB('db.json')
