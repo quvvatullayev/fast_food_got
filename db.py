@@ -77,7 +77,12 @@ class DB:
         products = self.product.get(doc_id=int(user_id))
         return products['1']
         
-    # def next_product(self, user_id:int):
+    def next_product(self, user_id:int, n:int):
+        products = self.product.get(doc_id=int(user_id))
+        if products.get(str(n+1)):
+            return products[str(n+1)]
+        else:
+            return products['1']
 
 
     def create_order(self, data:dict):
@@ -103,7 +108,7 @@ db = DB('db.json')
 #     "product":1,
 #     'count':1,
 # }
-print(db.get_product_detail(2019100))
+print(db.next_product(2019100, 4))
 
 
 # print(db.create_order(data))
