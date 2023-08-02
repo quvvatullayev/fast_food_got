@@ -73,10 +73,12 @@ class DB:
             data = {'error':'request not fount'}
         return data
     
-    def get_product_detail(self):
-        products = self.product.all()
-        for product in products:
-            return product['1']
+    def get_product_detail(self, user_id:int):
+        products = self.product.get(doc_id=int(user_id))
+        return products['1']
+        
+    # def next_product(self, user_id:int):
+
 
     def create_order(self, data:dict):
         now = datetime.datetime.now()
@@ -101,7 +103,7 @@ db = DB('db.json')
 #     "product":1,
 #     'count':1,
 # }
-print(db.get_product_detail())
+print(db.get_product_detail(2019100))
 
 
 # print(db.create_order(data))
