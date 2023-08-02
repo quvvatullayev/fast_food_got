@@ -83,6 +83,14 @@ class DB:
             return products[str(n+1)]
         else:
             return products['1']
+        
+    def back_product(self, user_id:int, n:int):
+        products = self.product.get(doc_id=int(user_id))
+        if products.get(str(n-1)):
+            return products[str(n-1)]
+        else:
+            max_n = len(products)
+            return products[str(max_n)]
 
 
     def create_order(self, data:dict):
@@ -100,7 +108,7 @@ class DB:
         
     
 
-db = DB('db.json')
+# db = DB('db.json')
 # data = {
 #     "name":"test",
 #     "phone":"123456789",
@@ -108,7 +116,7 @@ db = DB('db.json')
 #     "product":1,
 #     'count':1,
 # }
-print(db.next_product(2019100, 4))
+# print(db.back_product(2019100, 1))
 
 
 # print(db.create_order(data))
