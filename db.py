@@ -6,8 +6,9 @@ import datetime
 
 class DB:
     def __init__(self, path) -> None:
-        self.db = TinyDB(path)
+        self.db = TinyDB(path, indent=4, separators=(',', ': '))
         self.query = Query()
+        self.product = self.db.table('products')
         self.base_url = "http://127.0.0.1:8000/"
 
     def get_category_list(self):
@@ -50,13 +51,32 @@ class DB:
             data = {'error':'request not fount'}
         return data
     
-    def get_product_detail(self, pk:int):
-        request = requests.get(self.base_url+f"product/detail/{pk}/")
+    def add_product_to_db(self, pk:int, user_id:int):
+        request = requests.get(self.base_url+f"product/list/{pk}/")
         if request.status_code == 200:
+            if self.product.get(doc_id=int(user_id)):
+                self.product.remove(doc_ids=[int(user_id)])
             data = request.json()
+            products = data['products']
+            n = 1
+            for product in products:
+                add_product = {
+                    'id':product['id'],
+                    'name':product['name'],
+                    'price':product['price'],
+                    'img':product['img'],
+                }
+                self.product.upsert(Document({n:add_product}, doc_id=user_id))
+                n += 1
+            data = {'OK':'request'}
         else:
             data = {'error':'request not fount'}
         return data
+    
+    def get_product_detail(self):
+        products = self.product.all()
+        for product in products:
+            return product['1']
 
     def create_order(self, data:dict):
         now = datetime.datetime.now()
@@ -81,6 +101,7 @@ db = DB('db.json')
 #     "product":1,
 #     'count':1,
 # }
+print(db.get_product_detail())
 
 
 # print(db.create_order(data))
