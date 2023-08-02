@@ -42,8 +42,8 @@ class DB:
             data = {'error':'request not fount'}
         return data
 
-    def get_product_list(self):
-        request = requests.get(self.base_url+"product/list/")
+    def get_product_list(self, pk:int):
+        request = requests.get(self.base_url+f"product/list/{pk}/")
         if request.status_code == 200:
             data = request.json()
         else:
