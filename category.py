@@ -1,11 +1,11 @@
-from telegram.ext import CallbackContext, Updater
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.ext import CallbackContext
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from db import DB
 
 db = DB('db.json')
 
 class Category:
-    def category_list(self, update: Updater, context: CallbackContext):
+    def category_list(self, update: Update, context: CallbackContext):
         bot = context.bot
         chat_id = update.message.chat_id
         data = db.get_category_list()

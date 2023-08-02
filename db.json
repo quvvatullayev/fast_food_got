@@ -19,6 +19,26 @@
                 "price": 4,
                 "img": "/products/download_2.jpeg"
             }
+        },
+        "677038439": {
+            "1": {
+                "id": 1,
+                "name": "mini hoddog",
+                "price": 1,
+                "img": "/products/ara18-tzns3.jpg"
+            },
+            "2": {
+                "id": 2,
+                "name": "big hoddog",
+                "price": 2,
+                "img": "/products/ara18-tzns3_PHDtgQu.jpg"
+            },
+            "3": {
+                "id": 3,
+                "name": "dubll hoddog",
+                "price": 4,
+                "img": "/products/download_2.jpeg"
+            }
         }
     }
 }
