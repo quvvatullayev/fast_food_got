@@ -75,22 +75,22 @@ class DB:
     
     def get_product_detail(self, user_id:int):
         products = self.product.get(doc_id=int(user_id))
-        return products['1']
+        return products['1'],1
         
     def next_product(self, user_id:int, n:int):
         products = self.product.get(doc_id=int(user_id))
         if products.get(str(n+1)):
-            return products[str(n+1)]
+            return products[str(n+1)],n+1
         else:
-            return products['1']
+            return products['1'],1
         
     def back_product(self, user_id:int, n:int):
         products = self.product.get(doc_id=int(user_id))
         if products.get(str(n-1)):
-            return products[str(n-1)]
+            return products[str(n-1)],n-1
         else:
             max_n = len(products)
-            return products[str(max_n)]
+            return products[str(max_n)],max_n
 
 
     def create_order(self, data:dict):
