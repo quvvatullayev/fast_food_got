@@ -16,8 +16,11 @@ class Sub_Category:
         
         for sub_category in data:
             reply_markup.append([
-                InlineKeyboardButton(sub_category['name'], callback_data=f"sub_category_{sub_category['id']}")
+                InlineKeyboardButton(sub_category['name'], callback_data=f"sub_category_{category_id}_{sub_category['id']}")
             ])
 
         reply_markup = InlineKeyboardMarkup(reply_markup)
         query.edit_message_text(text="Sub Category List", reply_markup=reply_markup)
+
+
+        

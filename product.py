@@ -12,7 +12,8 @@ class Product:
         query = update.callback_query
         bot = context.bot
         chat_id = query.message.chat_id
-        sub_category_id = query.data.split('_')[2]
+        category_id = query.data.split('_')[-2]
+        sub_category_id = query.data.split('_')[-1]
         db.add_product_to_db(sub_category_id, chat_id)
         data,n,max_n = db.get_product_detail(chat_id)
 
@@ -21,12 +22,12 @@ class Product:
                 InlineKeyboardButton(f'{n}/{max_n}', callback_data=f'n')
             ],
             [
-                InlineKeyboardButton('Back', callback_data=f'back_{n}'),
+                InlineKeyboardButton('Back', callback_data=f'back_{n}_{category_id}'),
                 InlineKeyboardButton('Add to cart', callback_data=f'add_to_cart_{data["id"]}'),
-                InlineKeyboardButton('Next', callback_data=f'next_{n}')
+                InlineKeyboardButton('Next', callback_data=f'next_{n}_{category_id}')
             ],
             [
-                InlineKeyboardButton('Back to sub category', callback_data=f'sub_category_{data["sub_category"]}')
+                InlineKeyboardButton('Back to sub category', callback_data=f'sub_category_{category_id}')
             ]
         ]
 
@@ -40,6 +41,7 @@ class Product:
         bot = context.bot
         chat_id = query.message.chat_id
         n = query.data.split('_')[1]
+        category_id = query.data.split('_')[-1]
         data,n,max_n = db.next_product(chat_id, n)
         query.bot.edit_message_reply_markup(reply_markup=None, chat_id=chat_id, message_id=query.message.message_id)
         reply_markup = [
@@ -47,12 +49,12 @@ class Product:
                 InlineKeyboardButton(f'{n}/{max_n}', callback_data=f'n')
             ],
             [
-                InlineKeyboardButton('Back', callback_data=f'back_{n}'),
+                InlineKeyboardButton('Back', callback_data=f'back_{n}_{category_id}'),
                 InlineKeyboardButton('Add to cart', callback_data=f'add_to_cart_{data["id"]}'),
-                InlineKeyboardButton('Next', callback_data=f'next_{n}')
+                InlineKeyboardButton('Next', callback_data=f'next_{n}_{category_id}')
             ],
             [
-                InlineKeyboardButton('Back to sub category', callback_data=f'sub_category_{data["sub_category"]}')
+                InlineKeyboardButton('Back to sub category', callback_data=f'sub_category_{category_id}')
             ]
         ]
 
@@ -66,6 +68,7 @@ class Product:
         bot = context.bot
         chat_id = query.message.chat_id
         n = query.data.split('_')[1]
+        category_id = query.data.split('_')[-1]
         data,n,max_n = db.back_product(chat_id, n)
         query.bot.edit_message_reply_markup(reply_markup=None, chat_id=chat_id, message_id=query.message.message_id)
         reply_markup = [
@@ -73,12 +76,12 @@ class Product:
                 InlineKeyboardButton(f'{n}/{max_n}', callback_data=f'n')
             ],
             [
-                InlineKeyboardButton('Back', callback_data=f'back_{n}'),
+                InlineKeyboardButton('Back', callback_data=f'back_{n}_{category_id}'),
                 InlineKeyboardButton('Add to cart', callback_data=f'add_to_cart_{data["id"]}'),
-                InlineKeyboardButton('Next', callback_data=f'next_{n}')
+                InlineKeyboardButton('Next', callback_data=f'next_{n}_{category_id}')
             ],
             [
-                InlineKeyboardButton('Back to sub category', callback_data=f'sub_category_{data["sub_category"]}')
+                InlineKeyboardButton('Back to sub category', callback_data=f'sub_category_{category_id}')
             ]
         ]
 
