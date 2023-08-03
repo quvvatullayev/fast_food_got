@@ -6,7 +6,7 @@ db = DB('db.json')
 
 class Product:
     def __init__(self) -> None:
-        self.base_url = "http://127.0.0.1:8000"
+        self.base_url = "https://fastfoodbackend.pythonanywhere.com"
 
     def product_detil(self, update: Update, context: tg.CallbackContext):
         query = update.callback_query

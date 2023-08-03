@@ -23,21 +23,21 @@
         "677038439": {
             "1": {
                 "id": 1,
-                "name": "mini hoddog",
-                "price": 1,
-                "img": "/products/ara18-tzns3.jpg"
+                "name": "singl sasiska",
+                "price": 18,
+                "img": "/products/Screenshot_from_2023-06-22_20-20-00.png"
             },
             "2": {
                 "id": 2,
-                "name": "big hoddog",
-                "price": 2,
-                "img": "/products/ara18-tzns3_PHDtgQu.jpg"
+                "name": "duble sasiska",
+                "price": 28,
+                "img": "/products/eleonce.jpg"
             },
             "3": {
                 "id": 3,
-                "name": "dubll hoddog",
-                "price": 4,
-                "img": "/products/download_2.jpeg"
+                "name": "mini hoddog",
+                "price": 20,
+                "img": "/products/Screenshot_from_2023-07-18_20-31-21.png"
             }
         }
     }

@@ -9,7 +9,7 @@ class DB:
         self.db = TinyDB(path, indent=4, separators=(',', ': '))
         self.query = Query()
         self.product = self.db.table('products')
-        self.base_url = "http://127.0.0.1:8000/"
+        self.base_url = "https://fastfoodbackend.pythonanywhere.com/"
 
     def get_category_list(self):
         request = requests.get(self.base_url+"category/list/")
