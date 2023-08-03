@@ -27,7 +27,7 @@ class Product:
                 InlineKeyboardButton('Next', callback_data=f'next_{n}_{category_id}')
             ],
             [
-                InlineKeyboardButton('Back to sub category', callback_data=f'sub_category_{category_id}')
+                InlineKeyboardButton('Back to sub category', callback_data=f'sub_back_category_{category_id}')
             ]
         ]
 
@@ -54,7 +54,7 @@ class Product:
                 InlineKeyboardButton('Next', callback_data=f'next_{n}_{category_id}')
             ],
             [
-                InlineKeyboardButton('Back to sub category', callback_data=f'sub_category_{category_id}')
+                InlineKeyboardButton('Back to sub category', callback_data=f'sub_back_category_{category_id}')
             ]
         ]
 
@@ -81,7 +81,7 @@ class Product:
                 InlineKeyboardButton('Next', callback_data=f'next_{n}_{category_id}')
             ],
             [
-                InlineKeyboardButton('Back to sub category', callback_data=f'sub_category_{category_id}')
+                InlineKeyboardButton('Back to sub category', callback_data=f'sub_back_category_{category_id}')
             ]
         ]
 
