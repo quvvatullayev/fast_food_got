@@ -9,6 +9,7 @@ class DB:
         self.db = TinyDB(path, indent=4, separators=(',', ': '))
         self.query = Query()
         self.product = self.db.table('products')
+        self.cart = self.db.table('cart')
         self.base_url = "https://fastfoodbackend.pythonanywhere.com/"
 
     def get_category_list(self):
@@ -110,19 +111,44 @@ class DB:
         else:
             data = {'error':'request not fount'}
         return data
+    
+    def add_cart(self, chat_id, product_id):
+        product = self.cart.search(self.query.product_id == product_id)
+        if product:
+            count = product[0]['count']
+            return count
+        self.cart.insert(Document(
+            {
+                'product_id':product_id,
+                'count':1,
+            }, doc_id=chat_id
+        ))
+
+        return 1
+
+    def add_plus(self, chat_id, product_id):
+        product = self.cart.search(self.query.product_id == product_id)
+        self.cart.update({'count':product[0]['count']+1}, self.query.product_id == product_id)
+
+        count = product[0]['count']+1
+        return count
+
+    def add_minus(self, chat_id, product_id):
+        product = self.cart.search(self.query.product_id == product_id)
+        if product[0]['count'] > 1:
+            self.cart.update({'count':product[0]['count']-1}, self.query.product_id == product_id)
+
+            count = product[0]['count']-1
+        else:
+            self.cart.remove(self.query.product_id == product_id)
+            count = 1
+
+        return count
+
+
         
     
 
 # db = DB('db.json')
-# data = {
-#     "name":"test",
-#     "phone":"123456789",
-#     "address":"test",
-#     "product":1,
-#     'count':1,
-# }
-# print(db.back_product(2019100, 1))
+# print(db.add_minus(2019100, 1))
 
-
-# print(db.create_order(data))
-# # print(db.create_order(data))

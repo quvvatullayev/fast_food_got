@@ -3,11 +3,14 @@ from start import Start
 from category import Category
 from sub_category import Sub_Category
 from product import Product
+from cart import Cart
 
 start = Start()
 category = Category()
 sub_category = Sub_Category()
 product = Product()
+cart = Cart()
+
 
 token = '5677023630:AAHkbfD1-l1RWMw7Q56_wBQKR4XzHXunVjs'
 updater = Updater(token=token, use_context=True)
@@ -21,6 +24,7 @@ dispatcher.add_handler(CallbackQueryHandler(product.nex_product, pattern='next_'
 dispatcher.add_handler(CallbackQueryHandler(product.back_product, pattern='back_'))
 dispatcher.add_handler(CallbackQueryHandler(sub_category.back_sub_category_list, pattern='sub_back_category_'))
 dispatcher.add_handler(CallbackQueryHandler(category.back_category_list, pattern='list_category_back'))
+dispatcher.add_handler(CallbackQueryHandler(cart.add_cart, pattern='add_to_cart_'))
 
 
 updater.start_polling()

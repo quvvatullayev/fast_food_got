@@ -43,5 +43,11 @@
                 "sub_category": 1
             }
         }
+    },
+    "cart": {
+        "677038439": {
+            "product_id": 1,
+            "count": 1
+        }
     }
 }
