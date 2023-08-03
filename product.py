@@ -18,7 +18,7 @@ class Product:
 
         reply_markup = [
             [
-                InlineKeyboardButton(f'{n}/{max_n}', callback_data=f'back_{n}')
+                InlineKeyboardButton(f'{n}/{max_n}', callback_data=f'n')
             ],
             [
                 InlineKeyboardButton('Back', callback_data=f'back_{n}'),
@@ -41,7 +41,7 @@ class Product:
         query.bot.edit_message_reply_markup(reply_markup=None, chat_id=chat_id, message_id=query.message.message_id)
         reply_markup = [
             [
-                InlineKeyboardButton(f'{n}/{max_n}', callback_data=f'{n}')
+                InlineKeyboardButton(f'{n}/{max_n}', callback_data=f'n')
             ],
             [
                 InlineKeyboardButton('Back', callback_data=f'back_{n}'),
@@ -64,7 +64,7 @@ class Product:
         query.bot.edit_message_reply_markup(reply_markup=None, chat_id=chat_id, message_id=query.message.message_id)
         reply_markup = [
             [
-                InlineKeyboardButton(f'{n}/{max_n}', callback_data=f'{n}')
+                InlineKeyboardButton(f'{n}/{max_n}', callback_data=f'n')
             ],
             [
                 InlineKeyboardButton('Back', callback_data=f'back_{n}'),
