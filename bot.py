@@ -20,6 +20,7 @@ dispatcher.add_handler(CallbackQueryHandler(product.product_detil, pattern='sub_
 dispatcher.add_handler(CallbackQueryHandler(product.nex_product, pattern='next_'))
 dispatcher.add_handler(CallbackQueryHandler(product.back_product, pattern='back_'))
 dispatcher.add_handler(CallbackQueryHandler(sub_category.back_sub_category_list, pattern='sub_back_category_'))
+dispatcher.add_handler(CallbackQueryHandler(category.back_category_list, pattern='list_category_back'))
 
 
 updater.start_polling()

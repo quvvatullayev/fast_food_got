@@ -19,6 +19,10 @@ class Sub_Category:
                 InlineKeyboardButton(sub_category['name'], callback_data=f"sub_category_{category_id}_{sub_category['id']}")
             ])
 
+        reply_markup.append([
+            InlineKeyboardButton('Back to category', callback_data=f'list_category_back')
+        ])
+
         reply_markup = InlineKeyboardMarkup(reply_markup)
         query.edit_message_text(text="Sub Category List", reply_markup=reply_markup)
 
@@ -35,6 +39,10 @@ class Sub_Category:
             reply_markup.append([
                 InlineKeyboardButton(sub_category['name'], callback_data=f"sub_category_{category_id}_{sub_category['id']}")
             ])
+        
+        reply_markup.append([
+            InlineKeyboardButton('Back to category', callback_data=f'list_category_back')
+        ])
 
         reply_markup = InlineKeyboardMarkup(reply_markup)
         query.bot.edit_message_reply_markup(reply_markup=None, chat_id=chat_id, message_id=query.message.message_id)
