@@ -94,7 +94,7 @@ class DB:
         if products.get(str(n-1)):
             return products[str(n-1)],n-1,max_n
         else:
-            return products[str(max_n)],max_n
+            return products[str(max_n)],max_n,max_n
 
 
     def create_order(self, data:dict):
