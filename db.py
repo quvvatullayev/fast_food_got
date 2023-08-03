@@ -140,7 +140,6 @@ class DB:
 
             count = product[0]['count']-1
         else:
-            self.cart.remove(self.query.product_id == product_id)
             count = 1
 
         return count

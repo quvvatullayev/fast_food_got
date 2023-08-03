@@ -26,6 +26,7 @@ dispatcher.add_handler(CallbackQueryHandler(sub_category.back_sub_category_list,
 dispatcher.add_handler(CallbackQueryHandler(category.back_category_list, pattern='list_category_back'))
 dispatcher.add_handler(CallbackQueryHandler(cart.add_cart, pattern='add_to_cart_'))
 dispatcher.add_handler(CallbackQueryHandler(cart.add_plus, pattern='plus_'))
+dispatcher.add_handler(CallbackQueryHandler(cart.add_minus, pattern='minus_'))
 
 
 updater.start_polling()
