@@ -24,6 +24,9 @@ class Product:
                 InlineKeyboardButton('Back', callback_data=f'back_{n}'),
                 InlineKeyboardButton('Add to cart', callback_data=f'add_to_cart_{data["id"]}'),
                 InlineKeyboardButton('Next', callback_data=f'next_{n}')
+            ],
+            [
+                InlineKeyboardButton('Back to sub category', callback_data=f'sub_category_{data["sub_category"]}')
             ]
         ]
 
@@ -47,6 +50,9 @@ class Product:
                 InlineKeyboardButton('Back', callback_data=f'back_{n}'),
                 InlineKeyboardButton('Add to cart', callback_data=f'add_to_cart_{data["id"]}'),
                 InlineKeyboardButton('Next', callback_data=f'next_{n}')
+            ],
+            [
+                InlineKeyboardButton('Back to sub category', callback_data=f'sub_category_{data["sub_category"]}')
             ]
         ]
 
@@ -70,6 +76,9 @@ class Product:
                 InlineKeyboardButton('Back', callback_data=f'back_{n}'),
                 InlineKeyboardButton('Add to cart', callback_data=f'add_to_cart_{data["id"]}'),
                 InlineKeyboardButton('Next', callback_data=f'next_{n}')
+            ],
+            [
+                InlineKeyboardButton('Back to sub category', callback_data=f'sub_category_{data["sub_category"]}')
             ]
         ]
 

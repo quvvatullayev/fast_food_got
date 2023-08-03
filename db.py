@@ -65,6 +65,7 @@ class DB:
                     'name':product['name'],
                     'price':product['price'],
                     'img':product['img'],
+                    'sub_category':product['subcategory']
                 }
                 self.product.upsert(Document({n:add_product}, doc_id=user_id))
                 n += 1
